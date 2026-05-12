@@ -1,12 +1,14 @@
 FROM php:8.2-apache
 
-# Esta línea es la que arregla el error de la imagen:
+# Instalamos la extensión mysqli
 RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 
-# Copiamos tus archivos
+# Copiamos tus archivos al servidor
 COPY . /var/www/html/
 
-# Le damos permisos para que WordPress pueda escribir
-RUN chown -R www-data:www-data /var/www/html/
+# Ajustamos permisos para que WordPress no llore
+RUN chown -R www-data:www-data /var/www/html/ \
+    && chmod -R 755 /var/www/html/
 
+# Exponemos el puerto 80
 EXPOSE 80
