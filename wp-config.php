@@ -42,14 +42,10 @@ define( 'DB_HOST', getenv('DB_HOST') ?: 'localhost' );
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         'amKFolm}ATh$[unYvx}-g$bYr)F>wo^24Anpy*K,y<Oa?&-X@rqnPYCO]H$MR#_!' );
-define( 'SECURE_AUTH_KEY',  'EK72se%n(K =Q`g$SI2<W&1D@CK{(RA*dw<mo:K}<_+; I$(t^n;+g]HcSQP>(90' );
-define( 'LOGGED_IN_KEY',    '?=Cs@y|99x}k%Z}h&U8$)[FK$}j>bIS%*ZcVI*(: .OpI&lVvKN:F=sugIVZluw|' );
-define( 'NONCE_KEY',        'N+wBMfpK}e5EYB^#]-0R,]1$qo=,T.o0*d<fM2Kw~WLBSYMiS9lG;#PTe`N.w]2`' );
-define( 'AUTH_SALT',        'ZZV*Db)<b!|9C/(lU]M/*=C8;?bJ*s:Ab=yOP^Af<BaxE5&Sohmx<ZHujf.b$xC_' );
-define( 'SECURE_AUTH_SALT', 'wJrcHUbbm]FH${ !f#w-z(+V){4*Tt&>IW0mBg#<(+aWEvFM*Yp c_1J`,/!t0qC' );
-define( 'LOGGED_IN_SALT',   '&N`K=eE3&V8]*qt,hXSAxLvU>Rv[g,l41D%+y)1y[i?Ci)tqgbJD6ZY#Q-pa]c;r' );
-define( 'NONCE_SALT',       '@T<=R /)~FDU*M J-|W?(Vl-tFvP8`?r<%=U0Ah85@+>.ZFN1Jk=9=3jV$_C=Q5n' );
+define( 'DB_NAME', $_ENV['DATABASE_URL'] ? parse_url($_ENV['DATABASE_URL'], PHP_URL_PATH) : 'nombre_db' );
+define( 'DB_USER', $_ENV['DATABASE_URL'] ? parse_url($_ENV['DATABASE_URL'], PHP_URL_USER) : 'usuario' );
+define( 'DB_PASSWORD', $_ENV['DATABASE_URL'] ? parse_url($_ENV['DATABASE_URL'], PHP_URL_PASS) : 'pass' );
+define( 'DB_HOST', $_ENV['DATABASE_URL'] ? parse_url($_ENV['DATABASE_URL'], PHP_URL_HOST) : 'host' );
 
 /**#@-*/
 
