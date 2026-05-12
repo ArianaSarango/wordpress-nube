@@ -1,13 +1,12 @@
-FROM php:8.2-cli
+FROM php:8.2-apache
 
-# Instalamos la extensión mysqli que nos pedía WordPress
+# Instalamos la extensión que falta
 RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 
-# Copiamos tus archivos al servidor
-COPY . /usr/src/myapp
-WORKDIR /usr/src/myapp
+# Copiamos tus archivos
+COPY . /var/www/html/
 
-# Encendemos el servidor igual que en tu compu (puerto 80)
-CMD [ "php", "-S", "0.0.0.0:80" ]
+# Le damos permisos a WordPress
+RUN chown -R www-data:www-data /var/www/html/
 
 EXPOSE 80
